@@ -1,0 +1,29 @@
+﻿@model IEnumerable<ShoseEmporium.Models.Shose>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome </h1>
+        <h1> Shose Emporium</h1>
+</div>
+
+<div class="row">
+@foreach (var item in Model)
+{
+
+
+        <div id="Container" class="col-lg-3 col-md-4 col-sm-1">
+             <a asp-controller="Shoses" asp-action="ShoseDetails" asp-route-id="@item.Id">
+            <img id="Image" style="width: 100%; height: 100%;" src="@item.URL" alt="@item.Title" />
+            <span id="Title">@item.Title</span>
+            </a>
+            <span id="Price">@item.Price</span>
+            <span id="Quantity"><input id="quantityInput" type="number" name="Quantity" value="" placeholder="0" /></span>
+            <span id="CartButton"><button id="btn"><span class="fa fa-shopping-cart"></span>Add to Cart</button></span>
+        </div>
+
+    
+}
+</div>
